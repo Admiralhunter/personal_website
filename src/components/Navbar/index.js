@@ -13,7 +13,7 @@ return (
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto">
 					<Nav.Link href="/contact">Contact</Nav.Link>
-					<Nav.Link href="/resume.pdf">Resume</Nav.Link>
+					<Nav.Link href={process.env.PUBLIC_URL + '/Resume.pdf'}>Resume</Nav.Link>
 					<NavDropdown title="PUBG Things" id="collasible-nav-dropdown">
 						<NavDropdown.Item target="_blank" href="https://pubg.op.gg/user/FingerMeTibbers">Hunter</NavDropdown.Item>
 						<NavDropdown.Item target="_blank" href="https://pubg.op.gg/user/jessyes">Jess</NavDropdown.Item>
