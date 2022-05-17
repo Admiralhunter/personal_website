@@ -4,8 +4,6 @@ import NavbarSite from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route}
 from 'react-router-dom';
 import About from './pages/about';
-import Blogs from './pages/blogs';
-import SignUp from './pages/signup';
 
 function App() {
 return (
@@ -14,8 +12,6 @@ return (
 		<NavbarSite />
 		<Routes>
 			<Route exact path='/' element={<About />} />
-			<Route path='/blogs' element={<Blogs/>} />
-			<Route path='/sign-up' element={<SignUp/>} />
 		</Routes>
 		</Router>
 	</div>
