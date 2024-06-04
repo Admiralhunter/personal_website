@@ -4,6 +4,7 @@ import NavbarSite from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route}
 from 'react-router-dom';
 import About from './pages/about';
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
 return (
@@ -15,6 +16,7 @@ return (
 			<Route exact path='/' element={<About />} />
 		</Routes>
 		</Router>
+		<SpeedInsights />
 	</div>
 );
 }
