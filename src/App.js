@@ -12,6 +12,7 @@ return (
 		<NavbarSite />
 		<Routes>
 			<Route exact path='/' element={<About />} />
+			<Route exact path='/' element={<About />} />
 		</Routes>
 		</Router>
 	</div>
