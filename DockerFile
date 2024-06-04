@@ -4,20 +4,26 @@ FROM node:18
 # Install git
 RUN apt-get update && apt-get install -y git
 
+# Create a non-root user and group (optional if not already present in the base image)
+RUN groupadd -r appuser && useradd -m -r -g appuser appuser
+
 # Set the working directory inside the container
 WORKDIR /workspace
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies as root to avoid permission issues, but ensure the correct owner
+RUN npm install && chown -R appuser:appuser /workspace/node_modules
+
+# Switch to the non-root user
+USER appuser
 
 # Ensure react-scripts is available in the path
 ENV PATH /workspace/node_modules/.bin:$PATH
 
 # Copy the rest of the application code to the working directory
-COPY . .
+COPY --chown=appuser:appuser . .
 
 # Expose the port the app runs on
 EXPOSE 3000
